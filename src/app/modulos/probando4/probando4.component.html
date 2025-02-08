@@ -1,0 +1,54 @@
+<button type="button" class="btn btn-primary " routerLink="/probando3">componente 3</button>
+
+<div class="row">
+
+    <div class="col-sm-5">
+
+        <!-- <h2>datos</h2>
+            <p>dato1: {{ validadorform.value?.dato1 }}</p>
+            <p>dato2: {{ validadorform.value?.dato2 }}</p>
+            <p>dato3: {{ validadorform.value?.dato3 }}</p>
+            <p>validacion: {{ validadorform.value?.validacion }}</p>
+            <p>nombre: {{ validadorform.value?.nombre }}</p>
+            <p>apellido: {{ validadorform.value?.apellido }}</p>
+            <p>edad: {{ validadorform.value?.edad }}</p> -->
+
+
+    </div>
+
+
+
+
+
+
+<div class="col-sm-5">
+    <form [formGroup]="validadorform">
+      <label> DATO 1</label>
+      <input type="text" class="form-control" formControlName="dato1" />
+  
+      <label> DATO 2</label>
+      <input type="text" class="form-control" formControlName="dato2" />
+  
+      <label> DATO 3</label>
+      <input type="text" class="form-control" formControlName="dato3" />
+      <br />
+  
+      <label>Activar validación</label>
+      <input type="checkbox" formControlName="validacion" class="form-check-input" />
+      <br /><br />
+  
+      <!-- Mostrar los campos adicionales solo si el checkbox está seleccionado -->
+      <div *ngIf="isValidacionChecked">
+        <label>nombre</label>
+        <input type="text" formControlName="nombre" placeholder="nombre" class="form-control" />
+        <label>apellido</label>
+        <input type="text" formControlName="apellido" placeholder="apellido" class="form-control" />
+        <label>edad</label>
+        <input type="text" formControlName="edad" placeholder="edad" class="form-control" />
+      </div>
+      <br>
+  
+      <input type="submit" value="guardar" class="btn btn-primary" [disabled]="!validadorform.valid" (click)="submit()" />
+    </form>
+  </div>
+</div>

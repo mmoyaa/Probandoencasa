@@ -1,93 +1,75 @@
+<h1>probando validaciones</h1>
 
+<!-- (ngSubmit)="guardar()" -->
+<!-- (change)="cambiarValidacion() -->
 
+<div class="card-body">
+  <div class="card-header">
+    <h2>validaciones</h2>
 
-<!-- <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-  </mat-form-field>
-  
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">El titulo</h1>
+        <!-- <p class="card-text">aca algo    </p> -->
+<div class="row">
+  <div class="col-sm-5">
 
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{ element.position }} </td>
-    </ng-container>
+    <div class="row">
+      <div class="col-sm-5">
+        <h2>datos</h2>
+        <p>dato1: {{ validadorform.value?.dato1 }}</p>
+        <p>dato2: {{ validadorform.value?.dato2 }}</p>
+        <p>dato3: {{ validadorform.value?.dato3 }}</p>
+        <p>validacion: {{ validadorform.value?.validacion }}</p>
+        <p>nombre: {{ validadorform.value?.nombre }}</p>
+        <p>apellido: {{ validadorform.value?.apellido }}</p>
+        <p>edad: {{ validadorform.value?.edad }}</p>
+        <input type="submit" value="Enviar" class="btn btn-primary" (click)="submit()" />
+      </div>
+    </div>
+  </div>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
+        <div class="col-sm-5">
+          <h2>abrir la opcion</h2>
 
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-  
+          <div class="col-sm-5">
+            <form [formGroup]="validadorform">
+              <label> DATO 1</label>
+              <input type="text" class="form-control" formControlName="dato1" />
 
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
+              <label> DATO 2</label>
+              <input type="text" class="form-control" formControlName="dato2" />
+              <label> DATO 3</label>
+              <input type="text" class="form-control" formControlName="dato3" />
+              <br />
 
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr>
-  </table>
-  <br> -->
+              <label>validacion</label>
+              <select formControlName="validacion" class="form-control">
+                <option value="si">si</option>
+                <option value="no">no</option>
+              </select>
+              <br /><br />
+              <div *ngIf="validadorform.value?.validacion === 'si'">
+                <label>nombre</label>
+                <input type="text" formControlName="nombre" placeholder="nombre" class="form-control" />
+                <label>apellido</label>
+                <input type="text" formControlName="apellido" placeholder="apellido" class="form-control" />
+                <label>edad</label>
+                <input type="text" formControlName="edad" placeholder="edad" class="form-control" />
+              </div>
+              <br>
+              <input type="submit" value="guardar" class="btn btn-primary" [disabled]="!validadorform.valid" (click)="submit()" />
+            </form>
+          </div>
 
+        
 
-  <button type="button" class="btn btn-primary" routerLink="/probando1">Componente 1</button>
-
-
-
-
-<div *ngIf="regiones.length > 0">
-  <h2>Lista de Regiones</h2>
-  <ul>
-    <li *ngFor="let region of regiones">{{ region.nombre }}</li>
-  </ul>
-</div>
-
-<div *ngIf="regiones.length === 0">
-  <p>No hay regiones disponibles.</p>
-</div> 
-
-  
-
-<div *ngIf="dataSource.data.length > 0; else noData">
-  <h2>Lista de Regiones</h2>
-  <table mat-table [dataSource]="dataSource" matSort>
-
-
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-      <td mat-cell *matCellDef="let region">{{ region.id }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-      <td mat-cell *matCellDef="let region">{{ region.nombre }}</td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
- 
-  <mat-paginator [length]="dataSource.data.length"
-                 [pageSize]="5"
-                 [pageSizeOptions]="[5, 10, 20]">
-  </mat-paginator>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-<ng-template #noData>
-  <p>No hay regiones disponibles.</p>
-</ng-template>
+<button type="button" class="btn btn-primary " routerLink="/probando3">componente 3</button>
