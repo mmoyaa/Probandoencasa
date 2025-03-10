@@ -1,0 +1,168 @@
+<form #reajusteForm="ngForm">
+    <!-- Fila de semestres -->
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="isFirstSemesterSelected"
+            (change)="toggleSemester()"
+            [disabled]="isSecondSemesterSelected"
+            name="firstSemester"
+          />
+          <label class="form-check-label" for="flexCheckDefault1">1° Semestre</label>
+        </div>
+      </div>
+  
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="isSecondSemesterSelected"
+            (change)="toggleSemester()"
+            [disabled]="isFirstSemesterSelected"
+            name="secondSemester"
+          />
+          <label class="form-check-label" for="flexCheckDefault2">2° Semestre</label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Input de Año: Siempre visible -->
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-1">
+        <br><br>
+        <label for="year">Año</label>
+        <input
+        class="form-control"
+          type="text"
+          [(ngModel)]="year"
+          name="year"
+          required
+          #yearInput="ngModel"
+          [class.is-invalid]="yearInput.invalid && yearInput.touched"
+        />
+        <div *ngIf="yearInput.invalid && yearInput.touched" class="invalid-feedback">
+          El año es requerido.
+        </div>
+      </div>
+    </div>
+  
+    <!-- Checkbox para habilitar Reajuste V, IPC/Peso Oro -->
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="isReajusteVEnabled"
+            (change)="toggleReajusteFields()"
+            name="reajusteV"
+            
+          />
+          <label class="form-check-label" for="flexCheckReajuste">
+            Reajuste V, IPC/Peso Oro
+          </label>
+        </div>
+      </div>
+  
+      <div class="col-sm-2"></div>
+  
+      <div class="col-sm-3">
+        <label for="reajusteUTM">Reajuste U.T.M.</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [(ngModel)]="isReajusteUTMEnabled"
+          (change)="toggleReajusteFields()"
+          name="reajusteUTM"
+        />
+      </div>
+    </div>
+  
+    <!-- Campos de Reajuste U.T.M. y V. UTM -->
+    <div class="row">
+      <div class="col-sm-3" *ngIf="isReajusteVEnabled">
+        <label for="vIPC">V.IPC</label>
+        <input
+          type="text"
+          [(ngModel)]="vIPC"
+          name="vIPC"
+          [disabled]="isReajusteUTMEnabled"
+          class="form-control"
+        />
+        <br />
+        <label for="pesoOro">Peso Oro</label>
+        <input
+          type="text"
+          [(ngModel)]="pesoOro"
+          name="pesoOro"
+          [disabled]="isReajusteUTMEnabled"
+          class="form-control"
+        />
+      </div>
+  
+      <div class="col-sm-5"></div>
+      
+      <div class="col-sm-3" *ngIf="isReajusteUTMEnabled">
+        <label for="vUTM">V. UTM</label>
+        <input
+          type="text"
+          [(ngModel)]="vUTM"
+          name="vUTM"
+          [disabled]="isReajusteVEnabled"
+          class="form-control"
+        />
+      </div>
+    </div>
+  
+    <!-- Botones de Reajuste -->
+    <div class="row">
+       
+      <div class="col-sm-3">
+        <input
+          type="button"
+          value="Reajuste Prueba"
+          (click)="calcularReajuste()"
+          [disabled]="!year || !vIPC || !pesoOro"
+        />
+      </div>
+      <div class="col-sm-2">
+        <br>  <br>
+        <label for="expiryDate">Fecha de Vencimiento</label>
+        <input type="date" [(ngModel)]="expiryDate" name="expiryDate" class="form-control" />
+      </div>
+      <div class="col-sm-3">
+        <input
+          type="button"
+          value="Reajuste pruebasssssssssssssssss"
+          (click)="validarReajustePrueba()"
+          [disabled]="!vIPC" [disabled]=" !vUTM"
+        />
+        <p *ngIf="vUTM=== null" style="color: red;">Debe ingresar un valor</p>
+      </div>
+    </div>
+  
+    <!-- Resultado de la multiplicación y boton final -->
+    <div class="row">
+      
+      <div class="col-sm-3">
+        <button
+          type="submit"
+          [disabled]="!isReajusteFinalEnabled"
+          (click)="enviarReajusteFinal()"
+        >
+          Reajuste Final
+        </button>
+        <p *ngIf="resultadoReajuste !== null">Resultado: {{ resultadoReajuste }}</p>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-3">
+        <button type="button" (click)="enviarReajusteFinalDerecha()">Reajuste Finssssl</button>
+      </div>
+    </div>
+  </form>
+  

@@ -17,9 +17,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';  
 import { provideImageKitLoader } from '@angular/common';
 import { ProbandomodalComponent } from './modulos/probandomodal/probandomodal.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Probando3Component } from './modulos/probando3/probando3.component';
 import { Probando4Component } from './modulos/probando4/probando4.component';
+import { Probando5Component } from './modulos/probando5/probando5.component';
+import { Probando6Component } from './modulos/probando6/probando6.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { Probando4Component } from './modulos/probando4/probando4.component';
     ProbandomodalComponent,
     Probando3Component,
     Probando4Component,
+    Probando5Component,
+    Probando6Component,
 
     
     
@@ -38,7 +42,7 @@ import { Probando4Component } from './modulos/probando4/probando4.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,MatInputModule,MatTableModule, NgbModule,  HttpClientModule,MatSortModule,MatPaginatorModule,      // Asegúrate de agregar MatTableModule
-    ReactiveFormsModule,HttpClientModule
+    ReactiveFormsModule,HttpClientModule,FormsModule
    
   ],
   providers: [],

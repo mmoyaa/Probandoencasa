@@ -1,0 +1,18 @@
+.form-check {
+    display: flex;            /* Usamos flexbox para alinear los elementos */
+    align-items: center;      /* Alinea los elementos verticalmente */
+    gap: 10px;                /* Espacio entre el checkbox y el texto */
+  }
+  
+  /* Agrandar el tamaño de los checkboxes */
+  .form-check-input {
+    width: 25px;   /* Ancho del checkbox */
+    height: 25px;  /* Alto del checkbox */
+    margin: 0;     /* Eliminar márgenes adicionales */
+  }
+  
+  /* Aumentar el tamaño de la etiqueta */
+  .form-check-label {
+    font-size: 1.2em; /* Aumentar el tamaño de la fuente del texto */
+    cursor: pointer;  /* Cambiar el cursor a puntero al pasar sobre la etiqueta */
+  }

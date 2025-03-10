@@ -1,0 +1,224 @@
+<form #reajusteForm="ngForm">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [(ngModel)]="isFirstSemesterSelected"
+          (change)="toggleSemester()"
+          [disabled]="isSecondSemesterSelected"
+          name="firstSemester"
+        />
+        <label class="form-check-label" for="flexCheckDefault1">1° Semestre</label>
+      </div>
+    </div>
+   
+    <div class="col-sm-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [(ngModel)]="isSecondSemesterSelected"
+          (change)="toggleSemester()"
+          [disabled]="isFirstSemesterSelected"
+          name="secondSemester"
+        />
+        <label class="form-check-label" for="flexCheckDefault2">2° Semestre</label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Input de Año: Siempre visible -->
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1">
+      <br><br>
+      <label for="year">Año</label>
+      <input
+        class="form-control"
+        type="text"
+        [(ngModel)]="year"
+        name="year"
+        required
+        #yearInput="ngModel"
+        [class.is-invalid]="yearInput.invalid && yearInput.touched"
+      />
+      <div *ngIf="yearInput.invalid && yearInput.touched" class="invalid-feedback">
+        El año es requerido.
+      </div>
+    </div>
+  </div>
+  
+  <!-- Checkbox para habilitar Reajuste V, IPC/Peso Oro -->
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [(ngModel)]="isReajusteVEnabled"
+          (change)="calcularReajuste()"
+          name="reajusteV"
+        />
+        <label class="form-check-label" for="flexCheckReajuste">
+          Reajuste V, IPC/Peso Oro
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [(ngModel)]="isReajusteUTMEnabled"
+          (change)="calcularReajuste()"
+          name="reajusteUTM"
+        />
+        <label class="form-check-label" for="flexCheckReajusteUTM">
+          Reajuste U.T.M.
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="col-sm-6"*ngIf="isReajusteVEnabled">
+        <label for="vIPC">V.IPC</label>
+        <input
+          type="text"
+          [(ngModel)]="vIPC"
+          name="vIPC"
+          class="form-control"
+        />
+        <br />
+        <label for="pesoOro">Peso Oro</label>
+        <input
+          type="text"
+          [(ngModel)]="pesoOro"
+          name="pesoOro"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="col-sm-3">
+      
+    </div>
+    <div class="col-sm-2" *ngIf="isReajusteUTMEnabled">
+        
+      <label for="vUTM">V. UTM</label>
+      <input
+        type="text"
+        [(ngModel)]="vUTM"
+        name="vUTM"
+        class="form-control"
+      />
+    
+  </div>
+  </div>
+  <!-- Campos de Reajuste V, IPC/Peso Oro -->
+  <!-- <div class="row" *ngIf="isReajusteVEnabled">
+    <div class="col-sm-3"*ngIf="isReajusteVEnabled">
+      <label for="vIPC">V.IPC</label>
+      <input
+        type="text"
+        [(ngModel)]="vIPC"
+        name="vIPC"
+        class="form-control"
+      />
+      <br />
+      <label for="pesoOro">Peso Oro</label>
+      <input
+        type="text"
+        [(ngModel)]="pesoOro"
+        name="pesoOro"
+        class="form-control"
+      />
+    </div>
+  </div> -->
+  
+  <!-- Campos de Reajuste U.T.M. -->
+  <!-- <div class="row" >
+    <div class="col-sm-3">
+          
+    </div>
+    <div class="col-sm-2" *ngIf="isReajusteUTMEnabled">
+        
+        <label for="vUTM">V. UTM</label>
+        <input
+          type="text"
+          [(ngModel)]="vUTM"
+          name="vUTM"
+          class="form-control"
+        />
+      
+    </div>
+    
+  </div>
+   -->
+  <!-- Botones de Reajuste -->
+   <br><br>
+  <div class="row">
+    
+      <div class="col-sm-3">
+        <input
+        type="button"
+        value="Reajuste Prueba izquierda"
+        (click)="calcularReajuste()"
+        [disabled]="!year || (!vIPC && vUTM)"
+      />
+      <p *ngIf="resultadoReajuste !== null">Resultado Prueba: {{ resultadoReajuste }}</p>
+  
+     
+      </div>
+      <div class="col-sm-3">
+      
+        <label for="expiryDate">Fecha de Vencimiento</label>
+        <input type="date" [(ngModel)]="expiryDate" name="expiryDate" class="form-control" />
+      </div>
+      <div class="col-sm-3">
+        <input
+        type="button"
+        value="Reajuste Prueba derecha "
+        
+        [disabled]="!year || !vUTM"
+      />
+      </div>
+    </div>
+   
+
+  
+    <!-- Fecha de Vencimiento -->
+     <div class="row">
+      
+      <div class="col-sm-2">
+        <input
+        type="button"
+        value="Reajuste Finassssssssssl"
+        (click)="enviarReajusteFinalIzquierda()"
+        [disabled]="!isReajusteFinalEnabled"
+      />
+  
+      </div>
+      <div class="col-sm-4">
+        
+      </div>
+      <div class="col-sm-2">
+        <input
+          type="button"
+          value="Reajuste Final Derecha"
+          (click)="enviarReajusteFinalDerecha()"
+          [disabled]="!year || !vUTM"
+        />
+      </div>
+
+     </div>
+  
+
+ 
+  
+</form>
