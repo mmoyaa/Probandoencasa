@@ -9,8 +9,17 @@ export class RegionesService {
 
   private apiUrl = 'http://localhost:3000/regiones';  
 
+  
+
   constructor(private http: HttpClient) { }
 
   getRegiones(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
-}}
+}
+
+
+// otrogetregiones(){
+//   return this.http.get<any>(this.apiUrl);
+// }
+
+}

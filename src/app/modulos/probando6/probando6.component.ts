@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { RegionesService } from '../../servicios/regiones.service';
 @Component({
   selector: 'app-probando6',
   templateUrl: './probando6.component.html',
   styleUrls: ['./probando6.component.scss']
 })
-export class Probando6Component {
+
+
+ 
+export class Probando6Component implements OnInit {
+  ngOnInit() {
+
+    this.getRegiones();
+  }
+  comunService: RegionesService;
+
+  constructor(comunService: RegionesService) {
+    this.comunService = comunService;
+  }
 
   // Variables para los estados de los checkboxes
   isFirstSemesterSelected = false;
@@ -109,4 +121,12 @@ export class Probando6Component {
       console.error('Por favor, ingresa tanto el Año como el V. UTM.');
     }
   }
+
+regiones: any[] = [];
+  getRegiones() {
+    this.comunService.getRegiones().subscribe((res: any) => {
+      console.log(res);
+      this.regiones = res;
+  }
+)}
 }

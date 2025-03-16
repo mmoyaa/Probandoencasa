@@ -22,6 +22,7 @@ import { Probando3Component } from './modulos/probando3/probando3.component';
 import { Probando4Component } from './modulos/probando4/probando4.component';
 import { Probando5Component } from './modulos/probando5/probando5.component';
 import { Probando6Component } from './modulos/probando6/probando6.component';
+import { Probando7Component } from './modulos/probando7/probando7.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { Probando6Component } from './modulos/probando6/probando6.component';
     Probando4Component,
     Probando5Component,
     Probando6Component,
+    Probando7Component,
 
     
     

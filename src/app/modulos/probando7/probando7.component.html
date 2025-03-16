@@ -1,0 +1,178 @@
+<!-- <div>
+    <h1 *ngFor="let region of regiones">Region {{region.nombre}}</h1>
+    </div> -->
+   <br><br><br>
+    <div class="row">
+    <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Capital</th>
+                        <th>Provincias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let region of regiones">
+                        <td>{{region.nombre}}</td>
+                        <td>{{region.capital}}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let provincia of region.provincias">{{provincia}}</li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-5">
+       
+   </div>
+    </div>
+<select name="" id="">
+        <option value="1">I. Municipalidad de Arica </option>                              
+        <option value="1">I. Municipalidad de Camarones</option>
+        <option value="1">I. Municipalidad de General Lagos</option>
+        <option value="1">I. Municipalidad de Putre </option>
+        <option value="1">I. Municipalidad de Iquique</option>
+        <option value="1">I. Municipalidad de Alto Hospicio </option>
+        <option value="1">I. Municipalidad de Camiña </option>
+        <option value="1">I. Municipalidad de Colchane </option>
+        <option value="1">I. Municipalidad de Huara </option>
+        <option value="1">I. Municipalidad de Pica </option>
+        <option value="1">I. Municipalidad de Pozo Almonte </option>
+        <option value="1">I. Municipalidad de Antofagasta</option>
+        <option value="1">I. Municipalidad de Calama </option>
+        <option value="1">I. Municipalidad de María Elena </option>
+        <option value="1">I. Municipalidad de Mejillones</option>
+        <option value="1">I. Municipalidad de Ollagüe </option>
+        <option value="1">I. Municipalidad de Sierra Gorda </option>
+        <option value="1">I. Municipalidad de San Pedro de Atacama </option>
+        <option value="1">I. Municipalidad de Taltal</option>
+        <option value="1">I. Municipalidad de Tocopilla </option>
+        <option value="1">I. Municipalidad de Chañaral </option>
+        <option value="1">I. Municipalidad de Copiapó </option>
+        <option value="1">I. Municipalidad de Alto del Carmen </option>
+        <option value="1">I. Municipalidad de Caldera   </option>
+        <option value="1">I. Municipalidad de Diego de Almagro </option>
+        <option value="1">I. Municipalidad de Huasco</option>
+        <option value="1">I. Municipalidad de Freirina </option>
+        <option value="1">I. Municipalidad de Tierra Amarrilla </option>
+        <option value="1">I. Municipalidad de Vallenar </option>
+        <option value="1">I. Municipalidad de Andacollo </option>
+        <option value="1">I. Municipalidad de La Serena </option>
+        <option value="1">I. Municipalidad de Canela </option>
+        <option value="1">I. Municipalidad de Combarbalá </option>
+        <option value="1">I. Municipalidad de La Higuera </option>
+        <option value="1">I. Municipalidad de Illapel </option>
+        <option value="1">I. Municipalidad de Monte Patria </option>
+        <option value="1">I. Municipalidad de Los Vilos </option>
+        <option value="1">I. Municipalidad de Ovalle </option>
+        <option value="1">I. Municipalidad de Paihuano </option>
+        <option value="1">I. Municipalidad de Punitaqui </option>
+        <option value="1">I. Municipalidad de Coquimbo </option>
+        <option value="1">I. Municipalidad de Vicuña </option>
+        <option value="1">I. Municipalidad de Rapa Nui</option>
+        <option value="1">I. Municipalidad de Hijuelas</option>
+        <option value="1">I. Municipalidad de Limache </option>
+        <option value="1">I. Municipalidad de Algarrobo </option>
+        <option value="1">I. Municipalidad de Valparaíso </option>
+        <option value="1">I. Municipalidad de Calle Larga </option>
+        <option value="1">I. Municipalidad de Cabildo </option>
+        <option value="1">I. Municipalidad de Cartagena </option>
+        <option value="1">I. Municipalidad de Casablanca </option>
+        <option value="1">I. Municipalidad de Catemu </option>
+        <option value="1">I. Municipalidad de Concón </option>
+        <option value="1">I. Municipalidad de El Quisco </option>
+        <option value="1">I. Municipalidad de El Tabo </option>
+        <option value="1">I. Municipalidad de Juan Fernández </option>
+        <option value="1">I. Municipalidad de La Cruz </option>
+        <option value="1">I. Municipalidad de La Ligua </option>
+        <option value="1">I. Municipalidad de Los Andes </option>
+        <option value="1">I. Municipalidad de Nogales </option>
+        <option value="1">I. Municipalidad de Olmué </option>
+        <option value="1">I. Municipalidad de Papudo </option>
+        <option value="1">I. Municipalidad de Petorca </option>
+        <option value="1">I. Municipalidad de Putaendo </option>
+        <option value="1">I. Municipalidad de Puchuncaví </option>
+        <option value="1">I. Municipalidad de Quillota </option>
+        <option value="1">I. Municipalidad de Quilpué </option>
+        <option value="1">I. Municipalidad de Rinconada </option>
+        <option value="1">I. Municipalidad de Quintero </option>
+        <option value="1">I. Municipalidad de San Antonio </option>
+        <option value="1">I. Municipalidad de San Esteban </option>
+        <option value="1">I. Municipalidad de San Felipe </option>
+        <option value="1">I. Municipalidad de Santa María </option>
+        <option value="1">I. Municipalidad de Santa Domingo </option>
+        <option value="1">I. Municipalidad de Villa Alemana </option>
+        <option value="1">I. Municipalidad de Zapallar </option>
+        <option value="1">I. Municipalidad de Viña del Mar </option>
+        <option value="1">I. Municipalidad de Chépica </option>
+        <option value="1">I. Municipalidad de Navidad </option>
+        <option value="1">I. Municipalidad de Pichilemu </option>
+        <option value="1">I. Municipalidad de Colbún </option>
+        <option value="1">I. Municipalidad de Constitución </option>
+        <option value="1">I. Municipalidad de Vichuquén </option>
+        <option value="1">I. Municipalidad de Trehuaco </option>
+        <option value="1">I. Municipalidad de Quillón </option>
+        <option value="1">I. Municipalidad de Arauco </option>
+        <option value="1">I. Municipalidad de Chiguayante </option>
+        <option value="1">I. Municipalidad de Coronel </option>
+        <option value="1">I. Municipalidad de Lebu </option>
+        <option value="1">I. Municipalidad de Lota </option>
+        <option value="1">I. Municipalidad de Santa Bárbara </option>
+        <option value="1">I. Municipalidad de Talcahuano </option>
+        <option value="1">I. Municipalidad de Tirúa </option>
+        <option value="1">I. Municipalidad de Tomé </option>
+        <option value="1">I. Municipalidad de Villarrica </option>
+        <option value="1">I. Municipalidad de Vilcún </option>
+        <option value="1">I. Municipalidad de Saavedra </option>
+        <option value="1">I. Municipalidad de Pucón </option>
+        <option value="1">I. Municipalidad de Nueva Imperial </option>
+        <option value="1">I. Municipalidad de Melipeuco </option>
+        <option value="1">I. Municipalidad de Carahue </option>
+        <option value="1">I. Municipalidad de Valdivia </option>
+        <option value="1">I. Municipalidad de Corral </option>
+        <option value="1">I. Municipalidad de Futrono </option>
+        <option value="1">I. Municipalidad de Lanco </option>
+        <option value="1">I. Municipalidad de Los Lagos </option>
+        <option value="1">I. Municipalidad de Mariquina </option>
+        <option value="1">I. Municipalidad de Lago Ranco </option>
+        <option value="1">I. Municipalidad de Panguipulli </option>
+        <option value="1">I. Municipalidad de Puerto Montt </option>
+        <option value="1">I. Municipalidad de San Juan de la Costa </option>
+        <option value="1">I. Municipalidad de Río Negro </option>
+        <option value="1">I. Municipalidad de Quinchao </option>
+        <option value="1">I. Municipalidad de Quemchi </option>
+        <option value="1">I. Municipalidad de Quellón </option>
+        <option value="1">I. Municipalidad de Queilén </option>
+        <option value="1">I. Municipalidad de Puyehue </option>
+        <option value="1">I. Municipalidad de Puqueldón </option>
+        <option value="1">I. Municipalidad de Puerto Varas </option>
+        <option value="1">I. Municipalidad de Puerto Octay </option>
+        <option value="1">I. Municipalidad de Maullín </option>
+        <option value="1">I. Municipalidad de Los Muermos </option>
+        <option value="1">I. Municipalidad de Llanquihue </option>
+        <option value="1">I. Municipalidad de Hualaihué </option>
+        <option value="1">I. Municipalidad de Curaco de Vélez </option>
+        <option value="1">I. Municipalidad de Cochamó </option>
+        <option value="1">I. Municipalidad de Fresia </option>
+        <option value="1">I. Municipalidad de Chonchi </option>
+        <option value="1">I. Municipalidad de Chaitén </option>
+        <option value="1">I. Municipalidad de Castro </option>
+        <option value="1">I. Municipalidad de Calbuco </option>
+        <option value="1">I. Municipalidad de Ancud </option>
+        <option value="1">I. Municipalidad de Guaitecas </option>
+        <option value="1">I. Municipalidad de Chile Chico </option>
+        <option value="1">I. Municipalidad de Aysén </option>
+        <option value="1">I. Municipalidad de San Gregorio  </option>
+        <option value="1">I. Municipalidad de Porvenir </option>
+        <option value="1">I. Municipalidad de Río Verde </option>
+        <option value="1">I. Municipalidad de Puerto Natales</option>
+      
+      
+      
+      
+
+</select>
