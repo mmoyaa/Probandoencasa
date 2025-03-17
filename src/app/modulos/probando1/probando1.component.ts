@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NUEVOService } from 'src/app/servicios/nuevo.service';
 
 @Component({
   selector: 'app-probando1',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./probando1.component.scss']
 })
 export class Probando1Component {
+constructor(public nuevoService: NUEVOService) { }
+
 
 }
+
