@@ -176,3 +176,49 @@
       
 
 </select>
+
+
+
+<div class="row">
+  <div class="col-md-6">
+    <label for="movimiento">Selecciona un movimiento:</label>
+    <select [formControl]="movimientoSeleccionado" (change)="agregarMovimiento()" class="form-control">
+      <option *ngFor="let mov of movall" [value]="mov.id">
+        {{ mov.nombre }}
+      </option>
+    </select>
+  </div>
+</div>
+<!-- Tabla de movimientos seleccionados -->
+<div class="row mt-3">
+  <div class="col-md-10">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del Movimiento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mov of movimientosSeleccionados">
+          <td>{{ mov.id }}</td>
+          <td>{{ mov.nombre }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="eliminarMovimiento(mov.id)">
+              Quitar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-md-10 text-end">
+    <button class="btn btn-success" (click)="guardarMovimientos()">
+      Guardar Movimientos
+    </button>
+  </div>
+</div>
